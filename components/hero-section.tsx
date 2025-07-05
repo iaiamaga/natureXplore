@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Play, Pause } from "lucide-react"
+import Link from "next/link"
 
 export default function HeroSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
@@ -35,15 +36,18 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col md:flex-row gap-8 justify-between items-center max-w-4xl mx-auto">
-          <button className="flex items-center space-x-3 text-areia hover:text-verde transition-colors duration-300 group order-2 md:order-1">
+          <button
+            onClick={toggleVideo}
+            className="flex items-center space-x-3 text-areia hover:text-verde transition-colors duration-300 group order-2 md:order-1"
+          >
             <div className="w-12 h-12 rounded-full border-2 border-areia group-hover:border-verde flex items-center justify-center transition-colors duration-300">
               {isVideoPlaying ? <Pause size={20} /> : <Play size={20} className="ml-1" />}
             </div>
             <span className="text-lg font-medium">Assista ao vídeo</span>
           </button>
 
-          <button
-            onClick={toggleVideo}
+          <Link
+            href="/jornada"
             className="flex items-center space-x-3 text-areia hover:text-verde transition-colors duration-300 group order-1 md:order-2"
           >
             <span className="text-lg font-medium">Comece sua Jornada</span>
@@ -57,7 +61,7 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

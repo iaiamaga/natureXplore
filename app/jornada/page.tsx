@@ -4,7 +4,9 @@ import { useState } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
-import { Heart, Star, MapPin, Clock, ShoppingBasket } from "lucide-react"
+import Link from "next/link"
+import { Heart, Star, MapPin, Clock } from "lucide-react"
+import { useMochilaStore } from "@/lib/store"
 
 const categories = [
   { id: "all", label: "Todas", count: 24 },
@@ -103,24 +105,37 @@ const experiences = [
 
 export default function JornadaPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
-  const [cart, setCart] = useState<number[]>([])
-  const [showCart, setShowCart] = useState(false)
+  const { addItem, items } = useMochilaStore()
 
   const filteredExperiences =
     selectedCategory === "all" ? experiences : experiences.filter((exp) => exp.category === selectedCategory)
 
-  const addToCart = (id: number) => {
-    if (!cart.includes(id)) {
-      setCart([...cart, id])
+  const addToMochila = (experience: any) => {
+    const experienceData = {
+      id: experience.id.toString(),
+      name: experience.title,
+      category: experience.category as any,
+      image: experience.image,
+      shortDescription: experience.description,
+      fullDescription: experience.description,
+      basePrice: experience.price,
+      duration: experience.duration,
+      location: experience.location,
+      coordinates: { lat: -22.3456, lng: -42.1234 },
+      gallery: [experience.image, experience.image, experience.image],
+      provider: {
+        name: "Fornecedor Local",
+        contact: {
+          whatsapp: "+5522999999999",
+          email: "contato@exemplo.com",
+        },
+      },
+    }
+
+    if (!items.find((item) => item.id === experienceData.id)) {
+      addItem(experienceData)
     }
   }
-
-  const removeFromCart = (id: number) => {
-    setCart(cart.filter((item) => item !== id))
-  }
-
-  const cartItems = experiences.filter((exp) => cart.includes(exp.id))
-  const cartTotal = cartItems.reduce((sum, item) => sum + item.price, 0)
 
   return (
     <main className="min-h-screen">
@@ -223,17 +238,22 @@ export default function JornadaPage() {
                   </div>
 
                   <div className="flex space-x-3">
-                    <button className="flex-1 btn-secondary text-sm py-2">Ver Detalhes</button>
+                    <Link
+                      href={`/experiencia/${experience.id}`}
+                      className="flex-1 btn-secondary text-sm py-2 text-center"
+                    >
+                      Ver Detalhes
+                    </Link>
                     <button
-                      onClick={() => addToCart(experience.id)}
-                      disabled={cart.includes(experience.id)}
+                      onClick={() => addToMochila(experience)}
+                      disabled={items.some((item) => item.id === experience.id.toString())}
                       className={`flex-1 text-sm py-2 px-4 rounded transition-all duration-300 ${
-                        cart.includes(experience.id)
+                        items.some((item) => item.id === experience.id.toString())
                           ? "bg-verde text-terra cursor-not-allowed"
                           : "bg-terra text-areia hover:bg-folha"
                       }`}
                     >
-                      {cart.includes(experience.id) ? "Adicionado" : "Adicionar"}
+                      {items.some((item) => item.id === experience.id.toString()) ? "Adicionado" : "Adicionar"}
                     </button>
                   </div>
                 </div>
@@ -242,49 +262,6 @@ export default function JornadaPage() {
           </div>
         </div>
       </section>
-
-      {/* Floating Cart */}
-      {cart.length > 0 && (
-        <div className="fixed bottom-6 right-6 z-50">
-          <button
-            onClick={() => setShowCart(!showCart)}
-            className="w-16 h-16 bg-terra text-areia rounded-full shadow-lg hover:bg-folha transition-colors duration-300 flex items-center justify-center relative"
-          >
-            <ShoppingBasket size={24} />
-            <span className="absolute -top-2 -right-2 w-6 h-6 bg-verde rounded-full text-xs text-terra flex items-center justify-center font-bold">
-              {cart.length}
-            </span>
-          </button>
-
-          {showCart && (
-            <div className="absolute bottom-20 right-0 w-80 bg-white rounded-lg shadow-xl border border-pedra/20 p-6">
-              <h3 className="font-title text-xl font-bold text-terra mb-4">Sua Jornada</h3>
-
-              <div className="space-y-3 mb-4 max-h-60 overflow-y-auto">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex items-center justify-between py-2 border-b border-pedra/10">
-                    <div className="flex-1">
-                      <h4 className="font-medium text-terra text-sm">{item.title}</h4>
-                      <p className="text-pedra text-xs">R$ {item.price}</p>
-                    </div>
-                    <button onClick={() => removeFromCart(item.id)} className="text-pedra hover:text-terra text-sm">
-                      Remover
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-              <div className="border-t border-pedra/20 pt-4">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="font-bold text-terra">Total:</span>
-                  <span className="font-bold text-terra text-xl">R$ {cartTotal}</span>
-                </div>
-                <button className="w-full btn-primary text-sm">Solicitar Orçamento Personalizado</button>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
 
       <Footer />
     </main>

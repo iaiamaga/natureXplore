@@ -9,7 +9,7 @@ const experiences = [
     description: "Caminhos que conectam você à essência da Mata Atlântica",
     icon: Mountain,
     image: "/placeholder.svg?height=400&width=600",
-    href: "/explorar/trilhas",
+    href: "/jornada#trilhas",
   },
   {
     id: "hospedagem",
@@ -17,7 +17,7 @@ const experiences = [
     description: "Acolhimento autêntico em meio à natureza preservada",
     icon: Home,
     image: "/placeholder.svg?height=400&width=600",
-    href: "/explorar/hospedagem",
+    href: "/jornada#hospedagem",
   },
   {
     id: "cultura",
@@ -25,7 +25,7 @@ const experiences = [
     description: "Vivências que celebram a tradição e sabedoria local",
     icon: Users,
     image: "/placeholder.svg?height=400&width=600",
-    href: "/explorar/cultura",
+    href: "/jornada#cultura",
   },
   {
     id: "sabores",
@@ -33,7 +33,7 @@ const experiences = [
     description: "Gastronomia que conta a história do território",
     icon: Utensils,
     image: "/placeholder.svg?height=400&width=600",
-    href: "/explorar/sabores",
+    href: "/jornada#gastronomia",
   },
 ]
 

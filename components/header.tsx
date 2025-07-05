@@ -4,10 +4,12 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, User } from "lucide-react"
+import { useMochilaStore } from "@/lib/store"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { items } = useMochilaStore()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +20,7 @@ export default function Header() {
   }, [])
 
   const menuItems = [
-    { href: "/explorar", label: "Explorar Sana" },
+    { href: "/jornada", label: "Explorar Sana" },
     { href: "/jornada", label: "Monte sua Jornada" },
     { href: "/sobre", label: "Quem Somos" },
     { href: "/contato", label: "Contato" },
@@ -56,7 +58,9 @@ export default function Header() {
 
             {/* Right Side Icons */}
             <div className="flex items-center space-x-4">
-              <button
+              {/* Mochila Button */}
+              <Link
+                href="/mochila"
                 className={`p-2 hover:text-verde transition-colors duration-300 relative ${
                   isScrolled ? "text-headerGreen" : "text-headerTransparent"
                 }`}
@@ -74,10 +78,13 @@ export default function Header() {
                     }}
                   />
                 </div>
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-verde rounded-full text-xs text-terra flex items-center justify-center font-bold">
-                  0
-                </span>
-              </button>
+                {items.length > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-verde rounded-full text-xs text-terra flex items-center justify-center font-bold animate-pulse">
+                    {items.length}
+                  </span>
+                )}
+              </Link>
+
               <button
                 className={`p-2 hover:text-verde transition-colors duration-300 ${
                   isScrolled ? "text-headerGreen" : "text-headerTransparent"
