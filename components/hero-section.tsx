@@ -12,7 +12,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[140vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div
@@ -21,7 +21,7 @@ export default function HeroSection() {
             backgroundImage: `url('/hero-background.jpeg')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60" />
       </div>
 
       {/* Content */}
@@ -64,6 +64,9 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
+
+      {/* Smooth transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent z-5" />
     </section>
   )
 }
