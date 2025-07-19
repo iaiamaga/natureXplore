@@ -3,7 +3,7 @@ import GlassCard from "./glass-card"
 
 export default function ExperienceCreationSection() {
   return (
-    <section className="py-20 section-padding bg-gradient-to-br from-verde/10 to-folha/20">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-verde/10 to-folha/20 relative">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1 - Texto explicativo */}
@@ -33,7 +33,7 @@ export default function ExperienceCreationSection() {
             </h3>
 
             <Link
-              href="/montagem"
+              href="/jornada"
               className="bg-terra text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-folha hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
               Monte sua experiência personalizada
@@ -41,6 +41,9 @@ export default function ExperienceCreationSection() {
           </GlassCard>
         </div>
       </div>
+
+      {/* Smooth transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-terra/10 to-transparent" />
     </section>
   )
 }

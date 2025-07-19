@@ -3,7 +3,7 @@ import GlassCard from "./glass-card"
 
 export default function DiarySection() {
   return (
-    <section className="py-20 section-padding bg-gradient-to-br from-terra/10 to-pedra/10">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-terra/10 to-pedra/10 relative">
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-12">
@@ -34,6 +34,9 @@ export default function DiarySection() {
           </GlassCard>
         </div>
       </div>
+
+      {/* Smooth transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent" />
     </section>
   )
 }

@@ -1,3 +1,6 @@
+"use client"
+
+import { useEffect } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
@@ -48,12 +51,16 @@ const milestones = [
 ]
 
 export default function SobrePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 section-padding">
+      <section className="min-h-[140vh] flex items-center justify-center section-padding relative">
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="font-title text-5xl md:text-6xl font-bold text-terra mb-8">Nossa História</h1>
@@ -63,6 +70,8 @@ export default function SobrePage() {
             </p>
           </div>
         </div>
+        {/* Smooth transition gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-folha/5 to-transparent" />
       </section>
 
       {/* Story Section */}
@@ -102,7 +111,7 @@ export default function SobrePage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 section-padding">
+      <section className="py-20 section-padding bg-areia">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="font-title text-4xl font-bold text-terra mb-6">Nossos Valores</h2>
@@ -181,7 +190,7 @@ export default function SobrePage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 section-padding">
+      <section className="py-20 section-padding bg-areia">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="font-title text-4xl font-bold text-terra mb-6">Nossa Jornada</h2>

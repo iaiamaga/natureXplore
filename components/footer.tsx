@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-terra text-areia py-16 section-padding">
       <div className="container-max">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
@@ -40,33 +40,6 @@ export default function Footer() {
                 <Mail size={20} className="text-areia" />
               </a>
             </div>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="font-title text-xl font-bold mb-6">Navegação</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/explorar" className="text-areia/80 hover:text-verde transition-colors duration-300">
-                  Explorar Sana
-                </Link>
-              </li>
-              <li>
-                <Link href="/jornada" className="text-areia/80 hover:text-verde transition-colors duration-300">
-                  Monte sua Jornada
-                </Link>
-              </li>
-              <li>
-                <Link href="/sobre" className="text-areia/80 hover:text-verde transition-colors duration-300">
-                  Quem Somos
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" className="text-areia/80 hover:text-verde transition-colors duration-300">
-                  Contato
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Contact */}

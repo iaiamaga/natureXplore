@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
@@ -9,11 +9,10 @@ import { Heart, Star, MapPin, Clock } from "lucide-react"
 import { useMochilaStore } from "@/lib/store"
 
 const categories = [
-  { id: "all", label: "Todas", count: 24 },
-  { id: "trilhas", label: "Trilhas", count: 8 },
-  { id: "hospedagem", label: "Hospedagem", count: 6 },
-  { id: "gastronomia", label: "Gastronomia", count: 5 },
-  { id: "cultura", label: "Cultura", count: 5 },
+  { id: "trilhas", label: "Trilhas" },
+  { id: "passeios", label: "Passeios" },
+  { id: "hospedagem", label: "Hospedagem" },
+  { id: "eventos locais", label: "Eventos Locais" },
 ]
 
 const experiences = [
@@ -48,7 +47,7 @@ const experiences = [
   {
     id: 3,
     title: "Oficina de Cerâmica",
-    category: "cultura",
+    category: "eventos locais",
     image: "/placeholder.svg?height=300&width=400",
     price: 120,
     duration: "3h",
@@ -62,7 +61,7 @@ const experiences = [
   {
     id: 4,
     title: "Degustação de Cachaças Artesanais",
-    category: "gastronomia",
+    category: "eventos locais",
     image: "/placeholder.svg?height=300&width=400",
     price: 95,
     duration: "2h",
@@ -101,11 +100,29 @@ const experiences = [
     highlights: ["Vista única", "Construção sustentável", "Experiência imersiva"],
     location: "Reserva Sana",
   },
+  {
+    id: 7,
+    title: "Cachoeira da Laje",
+    category: "passeios",
+    image: "/placeholder.svg?height=300&width=400",
+    price: 220,
+    duration: "1 dia",
+    difficulty: "Aventura",
+    rating: 4.6,
+    reviews: 14,
+    description: "Passeio de 4x4 para uma cachoeira longínqua",
+    highlights: ["Vista única", "Cachoeira", "Experiência imersiva"],
+    location: "Reserva Sana",
+  },
 ]
 
 export default function JornadaPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const { addItem, items } = useMochilaStore()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const filteredExperiences =
     selectedCategory === "all" ? experiences : experiences.filter((exp) => exp.category === selectedCategory)
@@ -142,7 +159,7 @@ export default function JornadaPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 section-padding bg-gradient-to-br from-folha/10 to-verde/5">
+      <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-folha/10 to-verde/5 relative">
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-title text-5xl md:text-6xl font-bold text-terra mb-6">Monte sua Jornada</h1>
@@ -152,12 +169,24 @@ export default function JornadaPage() {
             </p>
           </div>
         </div>
+        {/* Smooth transition gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent" />
       </section>
 
       {/* Filters */}
-      <section className="py-8 section-padding border-b border-pedra/20">
+      <section className="py-8 section-padding border-b border-pedra/20 bg-areia">
         <div className="container-max">
           <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => setSelectedCategory("all")}
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                selectedCategory === "all"
+                  ? "bg-terra text-areia shadow-lg"
+                  : "bg-white text-pedra border border-pedra/30 hover:border-folha hover:text-folha"
+              }`}
+            >
+              Todas
+            </button>
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -168,7 +197,7 @@ export default function JornadaPage() {
                     : "bg-white text-pedra border border-pedra/30 hover:border-folha hover:text-folha"
                 }`}
               >
-                {category.label} ({category.count})
+                {category.label}
               </button>
             ))}
           </div>
@@ -176,7 +205,7 @@ export default function JornadaPage() {
       </section>
 
       {/* Experiences Grid */}
-      <section className="py-12 section-padding">
+      <section className="py-12 section-padding bg-areia">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredExperiences.map((experience) => (

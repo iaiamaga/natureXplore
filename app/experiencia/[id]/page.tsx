@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { useMochilaStore } from "@/lib/store"
-import { MapPin, Clock, User, Mail, MessageCircle } from "lucide-react"
+import { MapPin, Clock, User, Mail, MessageCircle } from 'lucide-react'
 
 // Mock data expandido para as experiências individuais
 const experienceDetails: { [key: string]: any } = {
@@ -172,6 +172,10 @@ export default function ExperiencePage({ params }: ExperiencePageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const experience = experienceDetails[params.id]
   const { addItem, items } = useMochilaStore()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (!experience) {
     return (

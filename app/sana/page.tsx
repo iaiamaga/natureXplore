@@ -1,12 +1,19 @@
+"use client"
+
+import { useEffect } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 
 export default function SanaPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main className="min-h-screen">
       <Header />
 
-      <section className="pt-32 pb-16 section-padding">
+      <section className="min-h-[140vh] flex items-center justify-center section-padding relative">
         <div className="container-max">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-title text-5xl md:text-6xl font-bold text-terra mb-8">Conhecendo o Sana</h1>
@@ -15,9 +22,11 @@ export default function SanaPage() {
             </p>
           </div>
         </div>
+        {/* Smooth transition gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent" />
       </section>
 
-      <section className="py-16 section-padding">
+      <section className="py-16 section-padding bg-areia">
         <div className="container-max">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-pedra">

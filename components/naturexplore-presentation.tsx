@@ -2,7 +2,7 @@ import { Instagram, MessageCircle, Mail } from "lucide-react"
 
 export default function NaturexplorePresentation() {
   return (
-    <section className="py-20 section-padding bg-areia">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-areia relative">
       <div className="container-max">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-title text-4xl md:text-5xl font-bold text-terra mb-12">Bem-vindos ao NatureXplore</h2>
@@ -55,6 +55,9 @@ export default function NaturexplorePresentation() {
           </div>
         </div>
       </div>
+
+      {/* Smooth transition gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-folha/20 to-transparent" />
     </section>
   )
 }
