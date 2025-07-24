@@ -129,8 +129,8 @@ export default function JornadaPage() {
       provider: {
         name: "Fornecedor Local",
         contact: {
-          whatsapp: "+5522999999999",
-          email: "contato@exemplo.com",
+          whatsapp: "+5522981261825",
+          email: "naturexploradores@gmail.com",
         },
       },
     }

@@ -39,7 +39,7 @@ export default function NaturexplorePresentation() {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://instagram.com/naturexplore"
+              href="https://www.instagram.com/naturexplore_sana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
@@ -48,7 +48,7 @@ export default function NaturexplorePresentation() {
             </a>
 
             <a
-              href="https://wa.me/5522999999999"
+              href="https://wa.me/5522981261825"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
@@ -60,7 +60,7 @@ export default function NaturexplorePresentation() {
             </a>
 
             <a
-              href="mailto:contato@naturexplore.com"
+              href="mailto:naturexploradores@gmail.com"
               className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
             >
               <Mail size={24} className="text-[#2E450F] group-hover:scale-110 transition-transform duration-300" />

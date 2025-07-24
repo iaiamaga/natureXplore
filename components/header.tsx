@@ -84,7 +84,7 @@ export default function Header() {
                 </div>
                 <span
                   className={`font-title text-xl font-bold transition-all duration-300 group-hover:text-[#B6F442] ${
-                    isScrolled ? "text-headerGreen" : "text-headerTransparent"
+                    isScrolled ? "text-headerGreen" : "text-white"
                   }`}
                 >
                   NatureXplore
@@ -97,7 +97,7 @@ export default function Header() {
                 <Link
                   href="/mochila"
                   className={`p-2 hover:text-[#B6F442] transition-colors duration-300 relative ${
-                    isScrolled ? "text-headerGreen" : "text-headerTransparent"
+                    isScrolled ? "text-headerGreen" : "text-white"
                   }`}
                 >
                   <div className="relative w-6 h-6">
@@ -109,7 +109,7 @@ export default function Header() {
                       style={{
                         filter: isScrolled
                           ? "brightness(0) saturate(100%) invert(73%) sepia(25%) saturate(434%) hue-rotate(66deg) brightness(95%) contrast(89%)"
-                          : "brightness(0) saturate(100%) invert(22%) sepia(18%) saturate(1234%) hue-rotate(66deg) brightness(95%) contrast(95%)",
+                          : "brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%)",
                       }}
                     />
                   </div>
@@ -124,7 +124,7 @@ export default function Header() {
                 <button
                   onClick={() => setIsLoginModalOpen(true)}
                   className={`p-2 hover:text-[#B6F442] transition-colors duration-300 ${
-                    isScrolled ? "text-headerGreen" : "text-headerTransparent"
+                    isScrolled ? "text-headerGreen" : "text-white"
                   }`}
                 >
                   <User size={24} />
@@ -133,7 +133,7 @@ export default function Header() {
                 {/* Hamburger Menu Button */}
                 <button
                   className={`p-2 hover:text-[#B6F442] transition-colors duration-300 ${
-                    isScrolled ? "text-headerGreen" : "text-headerTransparent"
+                    isScrolled ? "text-headerGreen" : "text-white"
                   }`}
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
@@ -155,7 +155,7 @@ export default function Header() {
                       key={item.href}
                       href={item.href}
                       className={`block font-medium tracking-wide py-3 px-2 rounded-lg hover:text-[#B6F442] transition-all duration-300 hover:bg-white/10 ${
-                        isScrolled ? "text-headerGreen" : "text-headerTransparent"
+                        isScrolled ? "text-headerGreen" : "text-white"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

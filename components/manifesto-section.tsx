@@ -55,7 +55,14 @@ export default function ManifestoSection() {
         </div>
 
         <div className="text-center mt-16">
-          <button className="btn-secondary">Conheça Nossa História</button>
+          <a
+            href="https://www.instagram.com/naturexplore_sana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary"
+          >
+            Veja a vista pelos olhares do naturexplore e dos naturexploradores no nosso perfil do instagram!
+          </a>
         </div>
       </div>
     </section>

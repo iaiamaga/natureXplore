@@ -6,7 +6,7 @@ import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { useMochilaStore } from "@/lib/store"
-import { MapPin, Clock, User, Mail, MessageCircle } from 'lucide-react'
+import { MapPin, Clock, User, Mail, MessageCircle } from "lucide-react"
 
 // Mock data expandido para as experiências individuais
 const experienceDetails: { [key: string]: any } = {
@@ -343,7 +343,7 @@ export default function ExperiencePage({ params }: ExperiencePageProps) {
 
                   {experience.provider.contact.whatsapp && (
                     <a
-                      href={`https://wa.me/${experience.provider.contact.whatsapp.replace(/\D/g, "")}`}
+                      href={`https://wa.me/5522981261825`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center text-folha hover:text-terra transition-colors duration-300"
@@ -355,7 +355,7 @@ export default function ExperiencePage({ params }: ExperiencePageProps) {
 
                   {experience.provider.contact.email && (
                     <a
-                      href={`mailto:${experience.provider.contact.email}`}
+                      href={`mailto:naturexploradores@gmail.com`}
                       className="flex items-center text-folha hover:text-terra transition-colors duration-300"
                     >
                       <Mail size={20} className="mr-3" />

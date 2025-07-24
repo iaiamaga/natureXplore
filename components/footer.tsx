@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://wa.me/5522981261825"
+                href="https://www.instagram.com/naturexplore_sana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#B6F442] rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300"
@@ -48,7 +48,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={16} className="text-[#B6F442] flex-shrink-0" />
-                <span className="text-areia/90 text-sm">(22) 981261825</span>
+                <span className="text-areia/90 text-sm">(22) 98126-1825</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={16} className="text-[#B6F442] flex-shrink-0" />

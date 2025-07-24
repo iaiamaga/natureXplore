@@ -275,10 +275,12 @@ export default function SobrePage() {
               </div>
 
               <a
-                href="/jornada"
+                href="https://www.instagram.com/naturexplore_sana?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block bg-[#B6F442] text-terra px-8 py-4 rounded-lg font-medium text-lg hover:bg-areia hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
-                Monte sua Experiência
+                Veja a vista pelos olhares do naturexplore e dos naturexploradores no nosso perfil do instagram!
               </a>
             </div>
           </div>

@@ -42,8 +42,8 @@ export const mockExperiences: Experience[] = [
     provider: {
       name: "Maria Silva",
       contact: {
-        whatsapp: "+5522999999999",
-        email: "contato@pousadavaleverde.com",
+        whatsapp: "+5522981261825",
+        email: "naturexploradores@gmail.com",
       },
     },
   },
@@ -64,8 +64,8 @@ export const mockExperiences: Experience[] = [
     provider: {
       name: "João Santos",
       contact: {
-        whatsapp: "+5522888888888",
-        email: "joao@sanacultura.com",
+        whatsapp: "+5522981261825",
+        email: "naturexploradores@gmail.com",
       },
     },
   },
@@ -90,8 +90,8 @@ export const mockExperiences: Experience[] = [
     provider: {
       name: "Guias do Sana",
       contact: {
-        whatsapp: "+5522777777777",
-        email: "trilhas@guiasdosana.com",
+        whatsapp: "+5522981261825",
+        email: "naturexploradores@gmail.com",
       },
     },
   },
@@ -112,8 +112,8 @@ export const mockExperiences: Experience[] = [
     provider: {
       name: "Ana Costa",
       contact: {
-        whatsapp: "+5522666666666",
-        email: "ana@ceramicasana.com",
+        whatsapp: "+5522981261825",
+        email: "naturexploradores@gmail.com",
       },
     },
   },
@@ -134,8 +134,8 @@ export const mockExperiences: Experience[] = [
     provider: {
       name: "Alambique Tradição",
       contact: {
-        whatsapp: "+5522555555555",
-        email: "eventos@alambiquetradição.com",
+        whatsapp: "+5522981261825",
+        email: "naturexploradores@gmail.com",
       },
     },
   },
