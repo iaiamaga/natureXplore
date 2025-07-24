@@ -5,7 +5,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
-import { Heart, Star, MapPin, Clock } from "lucide-react"
+import { MapPin, Clock } from "lucide-react"
 import { useMochilaStore } from "@/lib/store"
 
 const categories = [
@@ -24,8 +24,6 @@ const experiences = [
     price: 85,
     duration: "4h",
     difficulty: "Moderada",
-    rating: 4.9,
-    reviews: 23,
     description: "Uma jornada através da mata atlântica até uma formação rochosa única",
     highlights: ["Vista panorâmica", "Cachoeira escondida", "Guia local especializado"],
     location: "Sana Centro",
@@ -38,8 +36,6 @@ const experiences = [
     price: 180,
     duration: "1 noite",
     difficulty: "Confortável",
-    rating: 4.8,
-    reviews: 15,
     description: "Acomodação sustentável com vista para as montanhas",
     highlights: ["Café da manhã orgânico", "Energia solar", "Horta própria"],
     location: "Sana Alto",
@@ -52,8 +48,6 @@ const experiences = [
     price: 120,
     duration: "3h",
     difficulty: "Iniciante",
-    rating: 4.7,
-    reviews: 18,
     description: "Aprenda técnicas tradicionais com artesãos locais",
     highlights: ["Material incluído", "Peça para levar", "História da cerâmica local"],
     location: "Ateliê Sana",
@@ -66,8 +60,6 @@ const experiences = [
     price: 95,
     duration: "2h",
     difficulty: "Adultos",
-    rating: 4.9,
-    reviews: 31,
     description: "Conheça o processo artesanal e sabores únicos da região",
     highlights: ["5 cachaças diferentes", "Harmonização", "Visita ao alambique"],
     location: "Alambique Tradição",
@@ -80,8 +72,6 @@ const experiences = [
     price: 110,
     duration: "3h",
     difficulty: "Fácil",
-    rating: 5.0,
-    reviews: 12,
     description: "Experiência mágica observando vaga-lumes em seu habitat natural",
     highlights: ["Fenômeno natural raro", "Guia especializado", "Lanche noturno"],
     location: "Mata do Sana",
@@ -94,8 +84,6 @@ const experiences = [
     price: 220,
     duration: "1 noite",
     difficulty: "Aventura",
-    rating: 4.8,
-    reviews: 9,
     description: "Durma entre as copas das árvores em estrutura ecológica",
     highlights: ["Vista única", "Construção sustentável", "Experiência imersiva"],
     location: "Reserva Sana",
@@ -108,8 +96,6 @@ const experiences = [
     price: 220,
     duration: "1 dia",
     difficulty: "Aventura",
-    rating: 4.6,
-    reviews: 14,
     description: "Passeio de 4x4 para uma cachoeira longínqua",
     highlights: ["Vista única", "Cachoeira", "Experiência imersiva"],
     location: "Reserva Sana",
@@ -155,63 +141,85 @@ export default function JornadaPage() {
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-areia">
       <Header />
 
       {/* Hero Section */}
-      <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-folha/10 to-verde/5 relative">
-        <div className="container-max">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-title text-5xl md:text-6xl font-bold text-terra mb-6">Monte sua Jornada</h1>
-            <p className="text-xl text-pedra leading-relaxed mb-8">
-              Crie uma experiência única combinando trilhas, hospedagem, cultura e sabores do Sana. Cada escolha
-              contribui diretamente com a comunidade local.
-            </p>
-          </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('/placeholder.svg?height=800&width=1200')`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0F220B]/60 via-[#0F220B]/40 to-[#2E450F]/80" />
         </div>
-        {/* Smooth transition gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent" />
+
+        <div className="relative z-10 text-center section-padding max-w-6xl mx-auto py-[40vh]">
+          <h1 className="font-title text-5xl md:text-7xl font-bold text-areia mb-8 text-shadow leading-tight">
+            Monte sua
+            <br />
+            <span className="text-[#B6F442]">Jornada</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-areia/90 mb-12 max-w-3xl mx-auto leading-relaxed text-shadow">
+            Crie uma experiência única combinando trilhas, hospedagem, cultura e sabores do Sana. Cada escolha contribui
+            diretamente com a comunidade local.
+          </p>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#2E450F] to-transparent z-5" />
       </section>
 
-      {/* Filters */}
-      <section className="py-8 section-padding border-b border-pedra/20 bg-areia">
+      {/* Filters Section */}
+      <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#2E450F] relative py-[40vh]">
         <div className="container-max">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => setSelectedCategory("all")}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === "all"
-                  ? "bg-terra text-areia shadow-lg"
-                  : "bg-white text-pedra border border-pedra/30 hover:border-folha hover:text-folha"
-              }`}
-            >
-              Todas
-            </button>
-            {categories.map((category) => (
+          <div className="text-center mb-12">
+            <h2 className="font-title text-4xl md:text-5xl font-bold text-areia mb-8">Escolha suas Experiências</h2>
+            <p className="text-xl text-areia/90 max-w-3xl mx-auto leading-relaxed mb-12">
+              Filtre por categoria e descubra as experiências que mais combinam com seu estilo de viagem
+            </p>
+
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-4 justify-center mb-16">
               <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? "bg-terra text-areia shadow-lg"
-                    : "bg-white text-pedra border border-pedra/30 hover:border-folha hover:text-folha"
+                onClick={() => setSelectedCategory("all")}
+                className={`px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 ${
+                  selectedCategory === "all"
+                    ? "bg-[#B6F442] text-terra shadow-lg transform -translate-y-1"
+                    : "bg-white/20 text-areia border border-areia/30 hover:border-[#B6F442] hover:text-[#B6F442] backdrop-blur-md"
                 }`}
               >
-                {category.label}
+                Todas as Experiências
               </button>
-            ))}
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-8 py-4 rounded-lg font-medium text-lg transition-all duration-300 ${
+                    selectedCategory === category.id
+                      ? "bg-[#B6F442] text-terra shadow-lg transform -translate-y-1"
+                      : "bg-white/20 text-areia border border-areia/30 hover:border-[#B6F442] hover:text-[#B6F442] backdrop-blur-md"
+                  }`}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F220B] to-transparent" />
       </section>
 
-      {/* Experiences Grid */}
-      <section className="py-12 section-padding bg-areia">
+      {/* Experiences Grid Section */}
+      <section className="min-h-screen flex items-center justify-center section-padding bg-[#0F220B] relative py-[40vh]">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredExperiences.map((experience) => (
               <div
                 key={experience.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white/10 backdrop-blur-md border border-areia/20 rounded-2xl overflow-hidden hover:bg-white/20 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative">
                   <Image
@@ -221,13 +229,8 @@ export default function JornadaPage() {
                     height={300}
                     className="w-full h-48 object-cover"
                   />
-                  <div className="absolute top-4 right-4">
-                    <button className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors duration-300">
-                      <Heart size={20} className="text-pedra hover:text-terra" />
-                    </button>
-                  </div>
                   <div className="absolute bottom-4 left-4">
-                    <span className="bg-verde/90 text-terra px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-[#B6F442]/90 text-terra px-3 py-1 rounded-full text-sm font-medium">
                       {experience.category}
                     </span>
                   </div>
@@ -235,16 +238,16 @@ export default function JornadaPage() {
 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-title text-xl font-bold text-terra">{experience.title}</h3>
+                    <h3 className="font-title text-xl font-bold text-areia">{experience.title}</h3>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-terra">R$ {experience.price}</div>
-                      <div className="text-sm text-pedra">por pessoa</div>
+                      <div className="text-2xl font-bold text-[#B6F442]">R$ {experience.price}</div>
+                      <div className="text-sm text-areia/70">por pessoa</div>
                     </div>
                   </div>
 
-                  <p className="text-pedra mb-4 line-clamp-2">{experience.description}</p>
+                  <p className="text-areia/90 mb-4 line-clamp-2">{experience.description}</p>
 
-                  <div className="flex items-center space-x-4 mb-4 text-sm text-pedra">
+                  <div className="flex items-center space-x-4 mb-4 text-sm text-areia/70">
                     <div className="flex items-center space-x-1">
                       <Clock size={16} />
                       <span>{experience.duration}</span>
@@ -256,30 +259,25 @@ export default function JornadaPage() {
                   </div>
 
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center space-x-1">
-                        <Star size={16} className="text-yellow-500 fill-current" />
-                        <span className="font-medium">{experience.rating}</span>
-                      </div>
-                      <span className="text-pedra text-sm">({experience.reviews} avaliações)</span>
-                    </div>
-                    <span className="text-sm text-pedra bg-folha/20 px-2 py-1 rounded">{experience.difficulty}</span>
+                    <span className="text-sm text-areia/70 bg-[#B6F442]/20 px-3 py-1 rounded-full">
+                      {experience.difficulty}
+                    </span>
                   </div>
 
                   <div className="flex space-x-3">
                     <Link
                       href={`/experiencia/${experience.id}`}
-                      className="flex-1 btn-secondary text-sm py-2 text-center"
+                      className="flex-1 bg-white/20 text-areia text-center py-3 px-4 rounded-lg font-medium hover:bg-white/30 transition-all duration-300"
                     >
                       Ver Detalhes
                     </Link>
                     <button
                       onClick={() => addToMochila(experience)}
                       disabled={items.some((item) => item.id === experience.id.toString())}
-                      className={`flex-1 text-sm py-2 px-4 rounded transition-all duration-300 ${
+                      className={`flex-1 text-sm py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
                         items.some((item) => item.id === experience.id.toString())
-                          ? "bg-verde text-terra cursor-not-allowed"
-                          : "bg-terra text-areia hover:bg-folha"
+                          ? "bg-[#B6F442] text-terra cursor-not-allowed"
+                          : "bg-terra text-areia hover:bg-[#B6F442] hover:text-terra"
                       }`}
                     >
                       {items.some((item) => item.id === experience.id.toString()) ? "Adicionado" : "Adicionar"}
@@ -289,7 +287,86 @@ export default function JornadaPage() {
               </div>
             ))}
           </div>
+
+          {filteredExperiences.length === 0 && (
+            <div className="text-center py-16">
+              <div className="text-6xl mb-6">🔍</div>
+              <h3 className="font-title text-2xl font-bold text-areia mb-4">Nenhuma experiência encontrada</h3>
+              <p className="text-areia/70">Tente selecionar uma categoria diferente</p>
+            </div>
+          )}
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#040C04] to-transparent" />
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="min-h-screen flex items-center justify-center section-padding bg-[#040C04] relative py-[40vh]">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="p-8 md:p-12 bg-white/10 backdrop-blur-md border border-areia/20 rounded-2xl">
+              <h2 className="font-title text-4xl md:text-5xl font-bold text-areia mb-8">Pronto para sua Aventura?</h2>
+
+              <div className="space-y-6 text-lg text-areia/90 leading-relaxed mb-8">
+                <p>
+                  Cada experiência selecionada é uma oportunidade de conexão autêntica com o Sana. Nossa equipe trabalha
+                  diretamente com a comunidade local para garantir que sua jornada seja transformadora tanto para você
+                  quanto para o destino.
+                </p>
+                <p>
+                  Adicione suas experiências favoritas à mochila e crie uma jornada personalizada que respeita a
+                  natureza e fortalece a economia local.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/mochila"
+                  className="bg-[#B6F442] text-terra px-8 py-4 rounded-lg font-medium text-lg hover:bg-areia hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  Ver Minha Mochila ({items.length})
+                </Link>
+                <Link
+                  href="/sobre"
+                  className="bg-white/20 text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-white/30 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  Conheça Nossa História
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#B6F442] to-transparent" />
+      </section>
+
+      {/* Final Section */}
+      <section className="min-h-screen flex items-center justify-center section-padding bg-[#B6F442] relative py-[40vh]">
+        <div className="container-max">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-title text-4xl md:text-5xl font-bold text-terra mb-8">"Explorar é Pertencer"</h2>
+
+            <div className="space-y-6 text-lg text-terra/90 leading-relaxed mb-8">
+              <p>
+                No NatureXplore, acreditamos que cada viagem é uma oportunidade de crescimento pessoal e contribuição
+                social. Quando você escolhe nossas experiências, está investindo em um futuro mais sustentável para o
+                Sana e suas comunidades.
+              </p>
+              <p>
+                Junte-se a nós nesta jornada de descoberta, respeito e transformação. O Sana está esperando por você.
+              </p>
+            </div>
+
+            <Link
+              href="/"
+              className="inline-block bg-terra text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-[#344E27] hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Voltar ao Início
+            </Link>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#344E27] to-transparent" />
       </section>
 
       <Footer />

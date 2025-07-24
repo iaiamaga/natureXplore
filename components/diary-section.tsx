@@ -1,12 +1,11 @@
 import Link from "next/link"
-import GlassCard from "./glass-card"
 
 export default function DiarySection() {
   return (
     <section className="min-h-screen flex items-center justify-center section-padding bg-[#B6F442] relative py-[40vh]">
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-8 md:p-12 bg-white/90 backdrop-blur-md border border-terra/30">
+          <div className="p-8 md:p-12 bg-white/20 backdrop-blur-md border border-terra/30 rounded-2xl">
             <div className="text-center">
               <h2 className="font-title text-3xl md:text-4xl font-bold text-terra mb-8">Diário do Explorador</h2>
 
@@ -26,12 +25,12 @@ export default function DiarySection() {
 
               <Link
                 href="/diario"
-                className="inline-block bg-terra text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-folha hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-terra text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-[#B6F442] hover:text-terra hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Dê uma olhada nas memórias do diário!
               </Link>
             </div>
-          </GlassCard>
+          </div>
         </div>
       </div>
 

@@ -80,7 +80,7 @@ export default function SanaSection() {
 
               <Link
                 href="/sana"
-                className="inline-block bg-areia text-[#0F220B] px-8 py-4 rounded-lg font-medium text-lg hover:bg-verde hover:text-terra hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-areia text-[#0F220B] px-8 py-4 rounded-lg font-medium text-lg hover:bg-[#B6F442] hover:text-terra hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Venha saber sobre o Sana
               </Link>
