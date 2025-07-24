@@ -71,7 +71,7 @@ export default function Header() {
         >
           <div className="container-max section-padding">
             <div className="flex items-center justify-between h-20">
-              {/* Logo */}
+              {/* Logo - Always visible */}
               <Link href="/" className="flex items-center space-x-3 group">
                 <div className="relative w-14 h-14 transition-transform duration-300 group-hover:scale-110">
                   <Image
@@ -83,7 +83,7 @@ export default function Header() {
                   />
                 </div>
                 <span
-                  className={`font-title text-xl font-bold transition-all duration-300 hover:text-verde ${
+                  className={`font-title text-xl font-bold transition-all duration-300 group-hover:text-[#B6F442] ${
                     isScrolled ? "text-headerGreen" : "text-headerTransparent"
                   }`}
                 >
@@ -96,7 +96,7 @@ export default function Header() {
                 {/* Mochila Button */}
                 <Link
                   href="/mochila"
-                  className={`p-2 hover:text-verde transition-colors duration-300 relative ${
+                  className={`p-2 hover:text-[#B6F442] transition-colors duration-300 relative ${
                     isScrolled ? "text-headerGreen" : "text-headerTransparent"
                   }`}
                 >
@@ -105,7 +105,7 @@ export default function Header() {
                       src="/backpack-icon.png"
                       alt="Mochila"
                       fill
-                      className="object-contain"
+                      className="object-contain transition-all duration-300 hover:brightness-150"
                       style={{
                         filter: isScrolled
                           ? "brightness(0) saturate(100%) invert(73%) sepia(25%) saturate(434%) hue-rotate(66deg) brightness(95%) contrast(89%)"
@@ -123,7 +123,7 @@ export default function Header() {
                 {/* Login Button */}
                 <button
                   onClick={() => setIsLoginModalOpen(true)}
-                  className={`p-2 hover:text-verde transition-colors duration-300 ${
+                  className={`p-2 hover:text-[#B6F442] transition-colors duration-300 ${
                     isScrolled ? "text-headerGreen" : "text-headerTransparent"
                   }`}
                 >
@@ -132,7 +132,7 @@ export default function Header() {
 
                 {/* Hamburger Menu Button */}
                 <button
-                  className={`p-2 hover:text-verde transition-colors duration-300 ${
+                  className={`p-2 hover:text-[#B6F442] transition-colors duration-300 ${
                     isScrolled ? "text-headerGreen" : "text-headerTransparent"
                   }`}
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -154,7 +154,7 @@ export default function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`block font-medium tracking-wide py-3 px-2 rounded-lg hover:text-verde transition-all duration-300 hover:bg-white/10 ${
+                      className={`block font-medium tracking-wide py-3 px-2 rounded-lg hover:text-[#B6F442] transition-all duration-300 hover:bg-white/10 ${
                         isScrolled ? "text-headerGreen" : "text-headerTransparent"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}

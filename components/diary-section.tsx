@@ -3,14 +3,14 @@ import GlassCard from "./glass-card"
 
 export default function DiarySection() {
   return (
-    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-terra/10 to-pedra/10 relative">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#B6F442] relative py-[30vh]">
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-8 md:p-12">
+          <GlassCard className="p-8 md:p-12 bg-white/90 backdrop-blur-md border border-terra/30">
             <div className="text-center">
               <h2 className="font-title text-3xl md:text-4xl font-bold text-terra mb-8">Diário do Explorador</h2>
 
-              <div className="space-y-6 text-lg text-pedra leading-relaxed mb-8">
+              <div className="space-y-6 text-lg text-terra/90 leading-relaxed mb-8">
                 <p>
                   As melhores histórias nascem das experiências vividas. No Diário do Explorador, compartilhamos relatos
                   autênticos de viajantes que se conectaram profundamente com o Sana. São memórias, descobertas,
@@ -36,7 +36,7 @@ export default function DiarySection() {
       </div>
 
       {/* Smooth transition gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-areia to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#344E27] to-transparent" />
     </section>
   )
 }

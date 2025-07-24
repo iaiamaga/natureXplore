@@ -2,12 +2,12 @@ import { Instagram, MessageCircle, Mail } from "lucide-react"
 
 export default function NaturexplorePresentation() {
   return (
-    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-areia relative">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#2E450F] relative">
       <div className="container-max">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-title text-4xl md:text-5xl font-bold text-terra mb-12">Bem-vindos ao NatureXplore</h2>
+          <h2 className="font-title text-4xl md:text-5xl font-bold text-areia mb-12">Bem-vindos ao NatureXplore</h2>
 
-          <div className="space-y-8 text-lg text-pedra leading-relaxed mb-12">
+          <div className="space-y-8 text-lg text-areia/90 leading-relaxed mb-12">
             <p>
               Somos mais que uma plataforma de turismo. Somos facilitadores de conexões autênticas entre pessoas,
               natureza e cultura no coração da Mata Atlântica. Cada experiência é cuidadosamente curada para respeitar e
@@ -32,32 +32,35 @@ export default function NaturexplorePresentation() {
               href="https://instagram.com/naturexplore"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 bg-terra rounded-full flex items-center justify-center hover:bg-folha transition-colors duration-300 group"
+              className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
             >
-              <Instagram size={24} className="text-areia group-hover:scale-110 transition-transform duration-300" />
+              <Instagram size={24} className="text-[#2E450F] group-hover:scale-110 transition-transform duration-300" />
             </a>
 
             <a
               href="https://wa.me/5522999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 bg-terra rounded-full flex items-center justify-center hover:bg-folha transition-colors duration-300 group"
+              className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
             >
-              <MessageCircle size={24} className="text-areia group-hover:scale-110 transition-transform duration-300" />
+              <MessageCircle
+                size={24}
+                className="text-[#2E450F] group-hover:scale-110 transition-transform duration-300"
+              />
             </a>
 
             <a
               href="mailto:contato@naturexplore.com"
-              className="w-14 h-14 bg-terra rounded-full flex items-center justify-center hover:bg-folha transition-colors duration-300 group"
+              className="w-14 h-14 bg-areia rounded-full flex items-center justify-center hover:bg-verde transition-colors duration-300 group"
             >
-              <Mail size={24} className="text-areia group-hover:scale-110 transition-transform duration-300" />
+              <Mail size={24} className="text-[#2E450F] group-hover:scale-110 transition-transform duration-300" />
             </a>
           </div>
         </div>
       </div>
 
       {/* Smooth transition gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-folha/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F220B] to-transparent" />
     </section>
   )
 }

@@ -3,14 +3,14 @@ import GlassCard from "./glass-card"
 
 export default function SanaSection() {
   return (
-    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-gradient-to-br from-folha/20 to-verde/10 relative">
+    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#0F220B] relative">
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-8 md:p-12">
+          <GlassCard className="p-8 md:p-12 bg-white/20 backdrop-blur-md border border-areia/30">
             <div className="text-center">
-              <h2 className="font-title text-3xl md:text-4xl font-bold text-terra mb-8">Conhecendo o Sana</h2>
+              <h2 className="font-title text-3xl md:text-4xl font-bold text-areia mb-8">Conhecendo o Sana</h2>
 
-              <p className="text-lg text-pedra leading-relaxed mb-8">
+              <p className="text-lg text-areia/90 leading-relaxed mb-8">
                 Descubra a história fascinante deste distrito único de Macaé, onde a Mata Atlântica preservada encontra
                 uma comunidade vibrante e acolhedora. O Sana é um refúgio natural que mantém vivas suas tradições
                 centenárias, oferecendo aos visitantes uma experiência autêntica de conexão com a natureza e a cultura
@@ -20,7 +20,7 @@ export default function SanaSection() {
 
               <Link
                 href="/sana"
-                className="inline-block bg-terra text-areia px-8 py-4 rounded-lg font-medium text-lg hover:bg-folha hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-areia text-[#0F220B] px-8 py-4 rounded-lg font-medium text-lg hover:bg-verde hover:text-terra hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Venha saber sobre o Sana
               </Link>
@@ -30,7 +30,7 @@ export default function SanaSection() {
       </div>
 
       {/* Smooth transition gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-verde/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#040C04] to-transparent" />
     </section>
   )
 }

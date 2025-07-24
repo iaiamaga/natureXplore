@@ -80,31 +80,22 @@ export default function LoginModal({ isOpen, onClose, onSubmit }: LoginModalProp
     setIsSubmitting(true)
 
     try {
-      // Enviar dados para API
-      const response = await fetch("/api/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          customerName: formData.nomeCompleto,
-          customerEmail: formData.email,
-          customerPhone: formData.telefone,
-          numberOfPeople: Number.parseInt(formData.quantidadePessoas),
-          numberOfDays: formData.quantidadeDias,
-          shareExperience: formData.compartilharExperiencia === "sim",
-          specialRequests: formData.detalhesEspeciais,
-          experiences: [], // Será preenchido com os itens da mochila
-        }),
+      // Simular processamento
+      await new Promise((resolve) => setTimeout(resolve, 2000))
+
+      // Log dos dados (em produção, você pode integrar com um serviço de email)
+      console.log("Dados da jornada:", {
+        customerName: formData.nomeCompleto,
+        customerEmail: formData.email,
+        customerPhone: formData.telefone,
+        numberOfPeople: Number.parseInt(formData.quantidadePessoas),
+        numberOfDays: formData.quantidadeDias,
+        shareExperience: formData.compartilharExperiencia === "sim",
+        specialRequests: formData.detalhesEspeciais,
+        timestamp: new Date().toISOString(),
       })
 
-      if (response.ok) {
-        const result = await response.json()
-        console.log("Reserva criada:", result)
-        onSubmit(formData)
-      } else {
-        throw new Error("Erro ao enviar reserva")
-      }
+      onSubmit(formData)
     } catch (error) {
       console.error("Erro ao enviar formulário:", error)
       alert("Erro ao enviar reserva. Tente novamente.")
