@@ -3,7 +3,7 @@ import GlassCard from "./glass-card"
 
 export default function DiarySection() {
   return (
-    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#B6F442] relative py-[30vh]">
+    <section className="min-h-screen flex items-center justify-center section-padding bg-[#B6F442] relative py-[40vh]">
       <div className="container-max">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-12 bg-white/90 backdrop-blur-md border border-terra/30">

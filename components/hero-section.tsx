@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { Play, Pause } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function HeroSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
@@ -13,7 +12,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[140vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div
@@ -26,18 +25,9 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center section-padding max-w-6xl mx-auto animate-fade-in">
-        {/* Logo Mobile Only */}
-        <div className="md:hidden mb-8">
-          <div className="flex justify-center">
-            <div className="relative w-20 h-20">
-              <Image src="/logo-naturexplore.png" alt="NatureXplore Logo" fill className="object-contain" priority />
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content - Moved up 20% on desktop */}
-        <div className="transform md:-translate-y-[20vh]">
+      <div className="relative z-10 text-center section-padding max-w-6xl mx-auto animate-fade-in py-[40vh]">
+        {/* Main Content - Centered on mobile */}
+        <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <h1 className="font-title text-5xl md:text-7xl lg:text-8xl font-bold text-areia mb-8 text-shadow leading-tight">
             Explorar é<br />
             <span className="text-headerTransparent">pertencer</span>

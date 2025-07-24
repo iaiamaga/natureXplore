@@ -1,10 +1,20 @@
 import { Instagram, MessageCircle, Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function NaturexplorePresentation() {
   return (
-    <section className="min-h-[140vh] flex items-center justify-center section-padding bg-[#2E450F] relative">
+    <section className="min-h-screen flex items-center justify-center section-padding bg-[#2E450F] relative py-[40vh]">
       <div className="container-max">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Logo Mobile Only */}
+          <div className="md:hidden mb-8">
+            <div className="flex justify-center">
+              <div className="relative w-20 h-20">
+                <Image src="/logo-naturexplore.png" alt="NatureXplore Logo" fill className="object-contain" priority />
+              </div>
+            </div>
+          </div>
+
           <h2 className="font-title text-4xl md:text-5xl font-bold text-areia mb-12">Bem-vindos ao NatureXplore</h2>
 
           <div className="space-y-8 text-lg text-areia/90 leading-relaxed mb-12">
